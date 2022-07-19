@@ -1,10 +1,10 @@
 #!/bin/bash -e
 #
-# git-clones the specified package and copies our CMake files into the clone.
+# git clone the specified package and copies our CMake files into the clone.
 #
 # Usage:
 #
-#     git-clone.sh [--dir=<DIR>]
+#     git-clone-and-prepare.sh [--dir=<DIR>]
 #
 # where
 #
@@ -21,7 +21,7 @@ cd "$(dirname $0)"
 current_dir=$PWD
 cd - >/dev/null
 
-gitit () {
+gitclone () {
     url="$1"
     name="imgui"
     branch="$3"
@@ -60,4 +60,4 @@ fi
 
 echo $1
 
-gitit "https://github.com/ocornut/imgui.git" $1
+gitclone "https://github.com/ocornut/imgui.git" $1
